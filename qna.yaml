@@ -1,0 +1,85 @@
+version: 3
+domain: technology
+created_by: Abhbijit Roy
+seed_examples:
+  - context: |
+      RHEL AI provides the ability for domain experts, not just data scientists, to contribute to a built-for-purpose gen AI model across the hybrid cloud, while also enabling IT organizations to scale these models for production through Red Hat OpenShift AI if required.Red Hat Enterprise Linux AI empowers you to contribute directly to LLMs. This allows you to easily and efficiently build AI-based applications, including chatbots. With RHEL AI you can host an LLM and interact with the open source Granite family of Large Language Models (LLMs)Using the LAB method, create and add your own knowledge data in a Git repository and fine-tune a model with that data with minimal machine learning background.Interact with the model that has been fine-tuned with your data.
+    questions_and_answers:
+      - question: |
+          What is RHEL AI?
+        answer: |
+          RHEL AI provides the ability for domain experts, not just data scientists, to contribute to a built-for-purpose gen AI model across the hybrid cloud.
+      - question: |
+          Who developed RHEL AI?
+        answer: |
+          It's a join project of IBM and Red Hat. The InstructLab project is the upstream of RHEL AI.
+      - question: |
+          What can I do using RHEL AI?
+        answer: |
+          Host an LLM and interact with the open source Granite family of Large Language Models (LLMs).
+  - context: |
+      InstructLab is an open source AI project that facilitates contributions to Large Language Models (LLMs). RHEL AI takes the foundation of the InstructLab project and builds an enterprise platform for LLM integration on applications. Red Hat Enterprise Linux AI targets high performing server platforms with dedicated Graphic Processing Units (GPUs). InstructLab is intended for small scale platforms, including laptops and personal computers.InstructLab implements the LAB (Large-scale Alignment for chatBots) technique, a novel synthetic data-based fine-tuning method for LLMs.
+    questions_and_answers:
+      - question: |
+          What is InstructLab?
+        answer: |
+          InstructLab is an open source AI project that facilitates contributions to Large Language Models (LLMs).
+      - question: Iis RHEL AI and InstructLab same?
+        answer: |
+          RHEL AI takes the foundation of the InstructLab project and builds an enterprise platform for LLM integration on applications. Red Hat Enterprise Linux AI targets high performing server platforms with dedicated Graphic Processing Units (GPUs)..
+      - question: |
+          What is the upstream project of RHEL AI?
+        answer: |
+          InstructLab.
+  - context: |
+      Serving model to interact with the models, you must first activate the model in a machine through serving. The ilab model serve commands starts a vLLM server that allows you to chat with the model. Prerequisites are You installed RHEL AI with the bootable container image, You initialized InstructLab, You installed your preferred Granite LLMs, You have root user access on your machine. Once you serve your model, you can now chat with the model.The model you are chatting with must match the model you are serving. With the default config.yaml file, the granite-7b-redhat-lab model is the default for serving and chatting.
+    questions_and_answers:
+      - question: What command is used to serve RHEL AI models?
+        answer: |
+          ilab model serve.
+      - question: |
+          What command is used to chat RHEL AI models?
+        answer: |
+          ilab model chat.
+      - question: |
+          How to use cutomized model?
+        answer: |
+          To chat with a specific model run ilab model chat --model <model-path>. To serve a specific model, run ilab model serve --model-path <model-path>
+  - context: |
+      After customizing your taxonomy tree, you can generate a synthetic dataset using the Synthetic Data Generation (SDG) process on Red Hat Enterprise Linux AI. SDG is a process that creates an artificially generated dataset that mimics real data based on provided examples. SDG uses a YAML file containing question-and-answer pairs as input data. With these examples, SDG utilizes the mixtral-8x7b-instruct-v0-1 LLM as a teacher model to generate similar question-and-answer pairs. In the SDG pipeline, many questions are generated and scored based on quality, where the mixtral-8x7b-instruct-v0-1 model assesses the quality of these questions. The pipeline then selects the highest-scoring questions, generates corresponding answers, and includes these pairs in the synthetic dataset. Prerequisites for SDG You created a custom qna.yaml file with knowledge data,downloaded the mixtral-8x7b-instruct-v0-1 teacher model for SDG,you downloaded the skills-adapter-v3:1.2 and knowledge-adapter-v3:1.2 LoRA layered skills and knowledge adapter.At the start of the SDG process, vLLM attempts to start a server once vLLM connects, the SDG process starts creating synthetic data from your examples whhe SDG process completes when the CLI displays the location of your new data set.This process can be time consuming depending on your hardware specifications. You can view output of SDG by navigating to the ~/.local/share/datasets/ directory and opening the JSONL file.
+    questions_and_answers:
+      - question: What command is used for Synthetic Data Generation (SDG)?
+        answer: |
+          ilab data generate.This command runs SDG with mixtral-8x7B-instruct as the teacher model.
+      - question: |
+          Which model act as a teacher model?
+        answer: |
+          mixtral-8x7b-instruct.
+      - question: |
+          Where the SDG data get stored?
+        answer: |
+          You can view output of SDG by navigating to the ~/.local/share/datasets/ directory and opening the JSONL file.
+  - context: |
+      RHEL AI can use your taxonomy tree and synthetic data to create a newly trained model with your domain-specific knowledge or skills using multi-phase training and evaluation. You can run the full training and evaluation process using the synthetic dataset you generated. The LAB optimized technique of multi-phase training is a type of LLM training that goes through multiple stages of training and evaluation. In these various stages, RHEL AI runs the training process and produces model checkpoints. The best checkpoint is selected for the next phase. This process creates many checkpoints and selects the best scored checkpoint. This best scored checkpoint is your newly trained LLM.The entire process creates a newly generated model that is trained and evaluated using the synthetic data from your taxonomy tree.You can use Red Hat Enterprise Linux AI to train a model with your synthetically generated data. Red Hat Enterprise Linux AI general availability does not support training and inference serving at the same time. If you have an inference server running, you must close it before you start the training process.Prerequisites are You downloaded the granite-7b-starter model, You downloaded the prometheus-8x7b-v2-0 judge model,You ran the synthetic data generation (SDG) process, You created a custom qna.yaml file with knowledge data.knowledge-train-messages-file the location of the knowledge_messages.jsonl file generated during SDG. RHEL AI trains the student model granite-7b-starter using the data from this .jsonl file. Example path: ~/.local/share/instructlab/datasets/knowledge_train_msgs_2024-08-13T20_54_21.jsonl.skills-train-messages-file the location of the skills_messages.jsonl file generated during SDG. RHEL AI trains the student model granite-7b-starter using the data from the .jsonl file. Example path: ~/.local/share/instructlab/datasets/skills_train_msgs_2024-08-13T20_54_21.jsonl. The first phase trains the model using the synthetic data from your knowledge contribution then, RHEL AI selects the best checkpoint to use for the next phase the next phase trains the model using the synthetic data from the skills data.Then, RHEL AI evaluates all of the checkpoints from phase 2 model training using the Multi-turn Benchmark (MT-Bench) and returns the best performing checkpoint as the fully trained output model.After training is complete, a confirmation appears and displays your best performed checkpoint.ilab model train --strategy lab-multiphase \
+        --phased-phase1-data ~/.local/share/instructlab/datasets/<knowledge-train-messages-jsonl-file> \
+        --phased-phase2-data ~/.local/share/instructlab/datasets/<skills-train-messages-jsonl-file>.When training a model with ilab model train, multiple checkpoints are saved with the samples_ prefix based on how many data points they have been trained on. These are saved to the ~/.local/share/instructlab/phase/ directory.
+    questions_and_answers:
+      - question: |
+          What command is used to train a model?
+        answer: |
+          ilab model train.
+      - question: |
+          Where new models get stored?
+        answer: |
+          multiple checkpoints are saved with the samples_ prefix based on how many data points they have been trained on. These are saved to the ~/.local/share/instructlab/phase/ directory.
+      - question: |
+          How long the training takes?
+        answer: |
+          This process can be time consuming depending on your hardware specifications.
+document_outline: |
+  Details and repair costs on a DeLorean DMC-12 car.
+document:
+  repo: https://github.com/Roy214/test_rhelai_docling.git
+  commit: c19647c58fda1e7fa2d8167ee30ccb588c7b6bdf
+  patterns:
+    - RHEL AI known issues || Roy.md
