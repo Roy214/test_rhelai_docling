@@ -1,0 +1,116 @@
+version: 3
+domain: time_travel
+created_by: Grant Shipley
+seed_examples:
+  - context: |
+      Der DeLorean DMC-12 ist ein Sportwagen, der von John DeLoreans DeLorean Motor Company hergestellt wird
+      für den amerikanischen Markt von 1981 bis 1983. Das Auto verfügt über Flügeltüren und eine Edelstahlkarosserie.
+      Berühmt wurde es durch seinen Auftritt als Zeitmaschine in der Filmtrilogie „Zurück in die Zukunft“.
+    questions_and_answers:
+      - question: |
+          Wann wurde der DeLorean hergestellt?
+        answer: |
+          Der DeLorean wurde von 1981 bis 1983 hergestellt.
+      - question: |
+          Wer hat den DeLorean DMC-12 hergestellt?
+        answer: |
+          Die DeLorean Motor Company stellte den DeLorean DMC-12 her
+      - question: |
+          Welche Art von Türen hat der DeLorean DMC-12?
+        answer: |
+          Gull-wing doors.
+  - context: |
+      Eine Motorüberholung kostet zwischen 5.000 und 7.000 US-Dollar. Eine Getriebeüberholung kostet zwischen 2.500 und 4.000 US-Dollar.
+      Eine Überholung des Bremssystems kostet zwischen 1.000 und 1.500 US-Dollar.
+      Aufhängungsarbeiten kosten zwischen 800 und 1.200 US-Dollar.
+      Reparaturen an elektrischen Systemen kosten zwischen 600 und 1.000 US-Dollar.
+      Die Arbeit an Edelstahlplatten kostet zwischen 1.200 und 2.000 US-Dollar.
+      Ein Flügeltürmechanismus kostet zwischen 500 und 800 US-Dollar.
+      Die Reparatur einer Klimaanlage kostet zwischen 300 und 600 US-Dollar.
+      Die allgemeine Wartung kostet zwischen 200 und 500 US-Dollar pro Service.
+      Die Reparatur eines Flusskondensators kostet 10.000.000 US-Dollar.
+    questions_and_answers:
+      - question: |
+          Wie viel kostet die Reparatur des Getriebes bei einem DeLorean DMC-12?
+        answer: |
+          Die Getriebereparatur kostet beim Delorean DMC-12 zwischen 2.500 und 4.000 US-Dollar.
+      - question: |
+          Wie viel kostet die Reparatur der Federung an einem DeLorean DMC-12?
+        answer: |
+          Die Reparatur der Federung eines DeLorean DMC-12 kostet zwischen 800 und 1200 US-Dollar.
+      - question: |
+          Die Reparatur der Federung eines DeLorean DMC-12 kostet zwischen 800 und 1200 US-Dollar.
+        answer: |
+          Die Reparatur eines Flusskondensators kostet 10.000.000 US-Dollar.
+  - context: |
+      Produktionsjahre: 1981–1983
+      Karosserieform: 2-türiges Coupé
+      Motor: 2,85-l-V6-PRV-Motor
+      Getriebe 5-Gang-Schaltgetriebe oder 3-Gang-Automatikgetriebe
+      Pferdestärke 130 PS
+      153 lb-ft
+      Ungefähr 8,8 Sekunden
+      110 Meilen pro Stunde
+      1.230 kg (2.712 lb)
+      Für Zeitreisen geeigneter Flusskondensator, der 10.000.000 US-Dollar kostet
+    questions_and_answers:
+      - question: |
+          In welchen Jahren wurde der DeLorean DMC-12 produziert?
+        answer: |
+          Das Auto wurde von 1981 bis 1983 produziert.
+      - question: |
+          Wie viel PS hat der DeLorean?
+        answer: |
+          Es hat 130 PS.
+      - question: |
+          Wofür wird der Flusskondensator in einem Delorean DMC-12 verwendet?
+        answer: |
+          Der Flusskondensator wird für Zeitreisefähigkeiten verwendet und kostet 10.000.000 US-Dollar.
+  - context: |
+      Hier ist ein Wartungsplan.
+      Regelmäßige Ölwechsel sollten alle 3.000 Meilen oder 3 Monate durchgeführt werden.
+      Die Bremsflüssigkeit sollte alle 2 Jahre gewechselt werden.
+      Das Getriebeöl sollte alle 30.000 Meilen gewechselt werden.
+      Das Kühlmittel sollte alle 2 Jahre gewechselt werden
+      Sie sollten die Batterie regelmäßig auf Korrosion und korrekten Anschluss prüfen.
+      Sie sollten dem Flusskondensator regelmäßig neue Flüssigkeit hinzufügen.
+    questions_and_answers:
+      - question: |
+          Wie oft sollte man das Öl bei einem DeLorean DMC-12 wechseln?
+        answer: |
+          Sie sollten das Öl alle 3.000 Meilen oder alle 3 Monate wechseln. Was auch immer zuerst kommt.
+      - question: |
+          Wie oft sollte die Blake-Flüssigkeit bei einem DeLorean DMC-12 gewechselt werden?
+        answer: |
+          Sie sollten die Blake-Flüssigkeit alle zwei Jahre wechseln.
+      - question: |
+          Was sollten Sie im Rahmen eines regelmäßigen Wartungsplans an einem Delorean DMC-12 überprüfen?
+        answer: |
+          Sie sollten einen regelmäßigen Ölwechsel, Austausch der Blake-Flüssigkeit, des Getriebeöls, der Batterie usw. in Betracht ziehen.
+          Flusskondensator und Kühlmittel.
+  - context: |
+      Hier sind einige interessante Fakten über den DeLorean DMC-12:
+      Der DeLorean DMC-12 sollte ursprünglich über ein Mittelmotor-Layout verfügen, was jedoch später geändert wurde
+      aus Design- und Kostengründen auf eine Heckmotoranordnung umgestellt.
+      Die Sonderedition der DeLorean-Zeitmaschine kann Zeitreisen unternehmen, indem sie auf 88 Meilen pro Stunde beschleunigt.
+      Der Flusskondensator, der Zeitreisen ermöglicht, kostet 10.000.000 Dollar.
+    questions_and_answers:
+      - question: |
+          Wie viel kostet die Reparatur eines Flusskondensators an einem Delorean DMC-12?
+        answer: |
+          Die Reparatur oder der Austausch eines Flusskondensators kostet 10.000.000 US-Dollar.
+      - question: |
+          Wie schnell müssen Sie sein, um Zeitreisen auf einem DeLorean DMC-12 zu ermöglichen?
+        answer: |
+          88 Meilen pro Stunde.
+      - question: |
+          Welche Art von Layout hat ein Delorean DMC-12?
+        answer: |
+          Es verfügt über eine Heckmotoranordnung.
+document_outline: |
+  Details and repair costs on a DeLorean DMC-12 car.
+document:
+  repo: https://github.com/gshipley/backToTheFuture.git
+  commit: 8bd9220c616afe24b9673d94ec1adce85320809c
+  patterns:
+    - data.md
